@@ -12,9 +12,9 @@ export function Fleet({ t }: { t: Dictionary }) {
         {t.fleet.items.map((vehicle, i) => (
           <li
             key={vehicle.name}
-            className="grid grid-cols-[120px_1fr] items-center gap-3.5 md:flex md:flex-col md:items-stretch md:border-ink md:px-8 md:pt-8 md:pb-12 md:not-first:border-l lg:px-12"
+            className="grid grid-cols-fleet items-center gap-3.5 md:flex md:flex-col md:items-stretch md:border-ink md:px-8 md:pt-8 md:pb-12 md:not-first:border-l lg:px-12"
           >
-            <div className="flex h-21 items-center justify-center border-2 border-ink bg-[repeating-linear-gradient(135deg,var(--color-paper-2)_0_10px,var(--color-paper)_10px_20px)] px-1.5 md:h-50 md:px-6">
+            <div className="flex h-21 items-center justify-center border-2 border-ink bg-stripes px-1.5 md:h-50 md:px-6">
               <VehicleDrawing kind={KINDS[i]} className="w-full" />
             </div>
             <div className="flex flex-col gap-1 md:gap-3.5">

@@ -9,6 +9,6 @@ import { BookingFlow } from "./BookingFlow";
 // Until then a quiet placeholder keeps the layout from jumping.
 export function BookingFlowLoader({ locale, t }: { locale: Locale; t: Dictionary }) {
   const isClient = useIsClient();
-  if (!isClient) return <div className="h-[60vh] bg-paper" aria-busy="true" />;
+  if (!isClient) return <div className="h-96 bg-paper" aria-busy="true" />;
   return <BookingFlow locale={locale} t={t} />;
 }

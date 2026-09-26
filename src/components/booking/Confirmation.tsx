@@ -54,7 +54,7 @@ export function Confirmation({ s, t, locale, headingRef }: { s: FlowState; t: Di
   const share = fill(c.share, { ref: s.ref ?? "", route: routeText, date: formatDate(s.date, locale), time: s.time });
 
   return (
-    <div className="grid lg:grid-cols-[minmax(0,1fr)_440px]">
+    <div className="grid lg:grid-cols-panel">
       <div className="flex flex-col gap-7 px-5 py-8 lg:px-12 lg:py-12">
         <div className="flex flex-col gap-3">
           <p aria-hidden="true" className="flex size-12 items-center justify-center bg-ink text-2xl font-black text-sign">
@@ -74,7 +74,7 @@ export function Confirmation({ s, t, locale, headingRef }: { s: FlowState; t: Di
           </h3>
           <ol className="flex flex-col border-t-2 border-ink">
             {[c.next1, s.flightStatus === "found" ? fill(c.next2Flight, { flight: s.flight }) : fill(c.next2Time, { time: s.time }), c.next3].map((line, i) => (
-              <li key={line} className="grid grid-cols-[36px_1fr] gap-3 border-b border-ink py-3">
+              <li key={line} className="grid grid-cols-numbered gap-3 border-b border-ink py-3">
                 <span aria-hidden="true" className="font-mono text-sm font-bold text-label">
                   {String(i + 1).padStart(2, "0")}
                 </span>

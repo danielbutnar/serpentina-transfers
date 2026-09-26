@@ -37,7 +37,7 @@ export function QuoteForm() {
         }}
         className="flex flex-col gap-3.5 lg:gap-4"
       >
-        <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-[1.4fr_1fr] lg:gap-3">
+        <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-date-pax lg:gap-3">
           <label className="flex min-w-0 flex-col gap-1.5 lg:col-span-2">
             <span className="label-mono">{t.form.from}</span>
             <select value={q.from} onChange={(e) => isAirport(e.target.value) && q.setFrom(e.target.value)} className={`${control} px-2 lg:px-3`}>
@@ -77,7 +77,7 @@ export function QuoteForm() {
             <span id="booking-passengers-label" className="label-mono">
               {t.form.passengers}
             </span>
-            <div className="grid h-12.5 grid-cols-[44px_1fr_44px] border-2 border-ink bg-white">
+            <div className="grid h-12.5 grid-cols-stepper border-2 border-ink bg-white">
               <button
                 type="button"
                 onClick={() => q.changePassengers(-1)}

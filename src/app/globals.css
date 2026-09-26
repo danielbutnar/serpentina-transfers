@@ -114,3 +114,46 @@
     stroke-dashoffset: 1;
   }
 }
+
+/* Named column layouts (instead of one-off grid-cols-[...] values). */
+@utility grid-cols-hero {
+  grid-template-columns: minmax(0, 1fr) 520px;
+}
+@utility grid-cols-panel {
+  grid-template-columns: minmax(0, 1fr) 440px;
+}
+@utility grid-cols-map {
+  grid-template-columns: minmax(0, 1fr) 300px;
+}
+@utility grid-cols-fill-auto {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+@utility grid-cols-dl {
+  grid-template-columns: auto 1fr;
+}
+@utility grid-cols-stepper {
+  grid-template-columns: 48px 1fr 48px;
+}
+@utility grid-cols-numbered {
+  grid-template-columns: 36px 1fr;
+}
+@utility grid-cols-faq {
+  grid-template-columns: 1fr 28px;
+}
+@utility grid-cols-faq-numbered {
+  grid-template-columns: 48px 1fr 32px;
+}
+@utility grid-cols-fleet {
+  grid-template-columns: 120px 1fr;
+}
+@utility grid-cols-date-pax {
+  grid-template-columns: 1.4fr 1fr;
+}
+@utility grid-cols-header {
+  grid-template-columns: 1fr auto auto;
+}
+
+/* Diagonal stripes behind the vehicle drawings. */
+@utility bg-stripes {
+  background-image: repeating-linear-gradient(135deg, var(--color-paper-2) 0 10px, var(--color-paper) 10px 20px);
+}

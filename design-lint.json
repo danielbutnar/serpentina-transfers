@@ -2,7 +2,7 @@
   "max": {
     "hex-outside-tokens": 0,
     "svg-hex": 8,
-    "tailwind-arbitrary": 19,
+    "tailwind-arbitrary": 0,
     "tailwind-arbitrary-color": 0,
     "font-size-literals": 1,
     "font-size-distinct": 1,
@@ -18,10 +18,10 @@
     "eyebrow": 4,
     "headline-accent": 1,
     "numbered-marker": 0,
-    "arrow-glyph": 9,
-    "middle-dot": 29,
+    "arrow-glyph": 12,
+    "middle-dot": 33,
     "em-dash-label": 0,
-    "mono-label": 21,
+    "mono-label": 22,
     "scroll-reveal": 0
   },
   "allow": {

@@ -13,7 +13,7 @@ export function RouteMatrix() {
       <caption className="sr-only">{t.routes.caption}</caption>
       <thead>
         <tr className="border-b-3 border-ink">
-          <th scope="col" className="w-[26%] px-5 py-3.5 align-middle font-mono text-xs font-bold tracking-widest uppercase">
+          <th scope="col" className="w-1/4 px-5 py-3.5 align-middle font-mono text-xs font-bold tracking-widest uppercase">
             <span aria-hidden="true">{t.routes.matrixHead}</span>
             <span className="sr-only">{t.routes.destination}</span>
           </th>

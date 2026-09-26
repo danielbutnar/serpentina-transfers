@@ -32,9 +32,7 @@ export function Counter({
         {label}
         {hint && <span className="ml-2 font-sans text-xs font-semibold tracking-normal text-muted normal-case">{hint}</span>}
       </span>
-      <div
-        className={`grid h-12.5 grid-cols-[48px_1fr_48px] border-2 bg-white ${invalid ? "border-ink outline-2 outline-offset-1 outline-ink" : "border-ink"}`}
-      >
+      <div className={`grid h-12.5 grid-cols-stepper border-2 bg-white ${invalid ? "border-ink outline-2 outline-offset-1 outline-ink" : "border-ink"}`}>
         <button
           id={`${id}-dec`}
           type="button"

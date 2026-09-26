@@ -44,7 +44,7 @@ export function RouteBoard() {
                 onClick={() => q.loadRoute(airport, dest)}
                 aria-pressed={selected}
                 aria-label={fill(t.routes.cell, { from: t.airports[airport], to: DESTINATION_NAMES[dest], car, minibus })}
-                className={`grid min-h-15 w-full grid-cols-[1fr_auto] items-center gap-3 border-b border-ink px-2 py-2.5 text-left ${selected ? "bg-sign" : ""}`}
+                className={`grid min-h-15 w-full grid-cols-fill-auto items-center gap-3 border-b border-ink px-2 py-2.5 text-left ${selected ? "bg-sign" : ""}`}
               >
                 <span className="flex flex-col gap-0.5">
                   <span className="text-body-lg font-extrabold">{DESTINATION_NAMES[dest]}</span>

@@ -22,7 +22,7 @@ export function SiteHeader({ locale, t }: { locale: Locale; t: Dictionary }) {
         <span>{t.concept}</span>
         <span className="hidden lg:inline">{t.portfolio}</span>
       </div>
-      <div className="grid h-15 grid-cols-[1fr_auto] items-stretch border-b-3 border-ink lg:h-auto lg:grid-cols-[1fr_auto_auto]">
+      <div className="grid h-15 grid-cols-fill-auto items-stretch border-b-3 border-ink lg:h-auto lg:grid-cols-header">
         <Link href={`/${locale}`} className="flex items-center gap-2.5 px-5 lg:gap-3.5 lg:px-12 lg:py-4.5">
           <span aria-hidden="true" className="flex size-8 items-center justify-center bg-ink text-lg font-black text-sign lg:size-10 lg:text-title-sm">
             S

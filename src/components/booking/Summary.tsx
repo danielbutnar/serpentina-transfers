@@ -44,7 +44,7 @@ export function Summary({ s, t, locale, showMap = true }: { s: FlowState; t: Dic
           {fare.km} KM · {formatDuration(fare.minutes, locale)}
         </p>
       </div>
-      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 border-t-2 border-ink pt-3 text-sm">
+      <dl className="grid grid-cols-dl gap-x-4 gap-y-1 border-t-2 border-ink pt-3 text-sm">
         {rows.map(([k, v]) => (
           <div key={k} className="contents">
             <dt className="font-semibold">{k}</dt>
@@ -52,7 +52,7 @@ export function Summary({ s, t, locale, showMap = true }: { s: FlowState; t: Dic
           </div>
         ))}
       </dl>
-      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 border-t-2 border-ink pt-3 text-sm">
+      <dl className="grid grid-cols-dl gap-x-4 gap-y-1 border-t-2 border-ink pt-3 text-sm">
         <dt className="font-semibold">{b.ride}</dt>
         <dd className="text-right font-bold">{money(p.ride)}</dd>
         {p.skis > 0 && (

@@ -24,7 +24,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <SiteHeader locale={lang} t={t} />
       <main>
         <QuoteProvider locale={lang} t={t}>
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_520px] lg:border-b-3 lg:border-ink">
+          <div className="grid grid-cols-1 lg:grid-cols-hero lg:border-b-3 lg:border-ink">
             <div className="flex flex-col gap-3.5 px-5 pt-7 pb-6 lg:justify-between lg:gap-8 lg:px-12 lg:py-16">
               <div className="flex flex-col gap-3.5 lg:gap-6">
                 <h1 className="text-display-sm leading-display font-black tracking-display text-balance wrap-break-word hyphens-auto lg:text-display-xl lg:leading-display-tight lg:tracking-display-tight">

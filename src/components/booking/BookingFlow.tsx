@@ -171,7 +171,7 @@ export function BookingFlow({ locale, t }: { locale: Locale; t: Dictionary }) {
   return (
     <>
       <StepBar step={s.step} t={b} />
-      <div className="grid lg:grid-cols-[minmax(0,1fr)_440px]">
+      <div className="grid lg:grid-cols-panel">
         <div className="flex min-w-0 flex-col gap-6 px-5 py-7 lg:px-12 lg:py-10">
           <details className="group border-2 border-ink bg-sign lg:hidden">
             <summary className="flex min-h-14 cursor-pointer items-center justify-between gap-3 px-4 py-3">
@@ -409,7 +409,7 @@ export function BookingFlow({ locale, t }: { locale: Locale; t: Dictionary }) {
                 <h2 ref={headingRef} tabIndex={-1} className="text-title font-black tracking-heading lg:text-4xl">
                   {b.details.heading}
                 </h2>
-                <div className="grid grid-cols-1 items-start gap-4 xl:grid-cols-[minmax(0,1fr)_auto]">
+                <div className="grid grid-cols-1 items-start gap-4 xl:grid-cols-fill-auto">
                   <Field
                     id={FIELD_IDS.name}
                     label={b.details.name}

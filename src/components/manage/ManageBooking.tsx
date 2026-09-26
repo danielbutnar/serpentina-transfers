@@ -107,7 +107,7 @@ export function ManageBooking({ locale, t }: { locale: Locale; t: Dictionary }) 
                 type="button"
                 onClick={() => open(b)}
                 aria-current={booking?.ref === b.ref ? "true" : undefined}
-                className={`grid w-full grid-cols-[1fr_auto] items-center gap-3 border-2 border-ink px-4 py-3 text-left ${booking?.ref === b.ref ? "bg-ink text-paper" : "bg-white hover:bg-sign-soft"}`}
+                className={`grid w-full grid-cols-fill-auto items-center gap-3 border-2 border-ink px-4 py-3 text-left ${booking?.ref === b.ref ? "bg-ink text-paper" : "bg-white hover:bg-sign-soft"}`}
               >
                 <span className="flex min-w-0 flex-col">
                   <span className="font-mono text-sm font-bold">{b.ref}</span>
@@ -129,7 +129,7 @@ export function ManageBooking({ locale, t }: { locale: Locale; t: Dictionary }) 
 
   if (!booking) {
     return (
-      <div className="grid lg:grid-cols-[minmax(0,1fr)_440px]">
+      <div className="grid lg:grid-cols-panel">
         <form noValidate onSubmit={find} className="flex max-w-160 flex-col gap-5 px-5 py-8 lg:px-12 lg:py-10">
           <h2 className="text-title font-black tracking-heading">{m.findTitle}</h2>
           <Field
@@ -184,7 +184,7 @@ export function ManageBooking({ locale, t }: { locale: Locale; t: Dictionary }) 
   ];
 
   return (
-    <div className="grid lg:grid-cols-[minmax(0,1fr)_440px]">
+    <div className="grid lg:grid-cols-panel">
       <div className="flex min-w-0 flex-col gap-6 px-5 py-8 lg:px-12 lg:py-10">
         <div className="flex flex-wrap items-center gap-3">
           <h2 ref={headingRef} tabIndex={-1} className="font-mono text-3xl font-bold lg:text-4xl">
@@ -195,8 +195,8 @@ export function ManageBooking({ locale, t }: { locale: Locale; t: Dictionary }) 
           </span>
         </div>
 
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
-          <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 border-t-2 border-ink pt-4">
+        <div className="grid gap-6 xl:grid-cols-map">
+          <dl className="grid grid-cols-dl gap-x-6 gap-y-2 border-t-2 border-ink pt-4">
             {rows.map(([k, v]) => (
               <div key={k} className="contents">
                 <dt className="font-semibold">{k}</dt>
@@ -278,7 +278,7 @@ export function ManageBooking({ locale, t }: { locale: Locale; t: Dictionary }) 
         <dialog
           ref={dialogRef}
           aria-labelledby="cancel-title"
-          className="m-auto w-[min(520px,calc(100vw-2rem))] border-3 border-ink bg-paper p-0 text-ink backdrop:bg-ink/60"
+          className="m-auto w-130 max-w-11/12 border-3 border-ink bg-paper p-0 text-ink backdrop:bg-ink/60"
         >
           <div className="flex flex-col gap-4 p-6">
             <h2 id="cancel-title" className="text-title-sm font-black">
