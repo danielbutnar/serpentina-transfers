@@ -10,6 +10,41 @@
   --color-muted: #3f3d37;
   --color-label: #5a5850;
   --color-on-ink-muted: #d6d3cb;
+
+  /* Type scale from the design (px sizes in the Claude Design hand-off). */
+  --text-3xs: 10px;
+  --text-2xs: 11px;
+  --text-caption: 13px;
+  --text-body-sm: 15px;
+  --text-body-lg: 17px;
+  --text-lead: 19px;
+  --text-title-xs: 21px;
+  --text-title-sm: 22px;
+  --text-title: 28px;
+  --text-namecard-sm: 26px;
+  --text-namecard: 38px;
+  --text-display-sm: 40px;
+  --text-display-md: 44px;
+  --text-display: 64px;
+  --text-display-lg: 72px;
+  --text-display-xl: 80px;
+
+  --tracking-display-tight: -0.04em;
+  --tracking-display: -0.035em;
+  --tracking-title: -0.03em;
+  --tracking-heading: -0.02em;
+  --tracking-brand: -0.01em;
+  --tracking-footer: 0.06em;
+  --tracking-bar: 0.08em;
+  --tracking-label: 0.12em;
+  --tracking-label-wide: 0.14em;
+
+  --leading-display-tight: 0.95;
+  --leading-display: 0.98;
+  --leading-sign: 1.05;
+  --leading-spec: 1.4;
+  --leading-note: 1.45;
+  --leading-copy: 1.55;
 }
 
 @theme inline {
@@ -60,4 +95,22 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+/* Route drawing on the map: the line draws itself once per route (RouteMap renders it with pathLength 1). */
+.route-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .route-draw {
+    animation: route-draw 900ms cubic-bezier(0.2, 0.7, 0.1, 1) both;
+  }
+}
+
+@keyframes route-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
 }

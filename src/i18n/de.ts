@@ -1,3 +1,4 @@
+import { bookDe } from "./book-de";
 import type { Dictionary } from "./en";
 
 // German copy (formal "Sie"). Draft from the Claude Design hand-off, for the owner's review.
@@ -34,9 +35,6 @@ export const de: Dictionary = {
     car: "Pkw · bis 4 Personen",
     minibus: "Kleinbus · 5–8 Personen",
     book: "Diesen Transfer buchen",
-    errName: "Geben Sie den Namen für das Schild ein, damit Ihr Fahrer Sie findet.",
-    errDate: "Wählen Sie Datum und Uhrzeit der Abholung.",
-    booked: "Gebucht (Demo). Buchungsnummer",
     included: "Kraftstoff, Gepäck und 60 Min. Wartezeit inklusive.",
   },
   routes: {
@@ -83,4 +81,6 @@ export const de: Dictionary = {
     whatsapp: "Schreiben Sie uns per WhatsApp",
     demo: "Dies ist ein Konzeptprojekt, WhatsApp ist daher nicht verbunden. Telefonnummer und E-Mail-Adresse sind Platzhalter.",
   },
+  map: { mountains: "Karpaten", label: "Karte der Strecke von {from} nach {to}, etwa {km} km." },
+  book: bookDe,
 };

@@ -1,11 +1,11 @@
 "use client";
 
-import { formatDuration, formatPrice } from "@/i18n/config";
+import { formatDuration, formatEuro, formatPrice } from "@/i18n/config";
 import { AIRPORTS, DESTINATIONS, DESTINATION_NAMES, MAX_PASSENGERS, MIN_PASSENGERS, isAirport, isDestination } from "@/lib/fares";
 import { NameSign } from "./NameSign";
 import { BOOKING_PANEL_ID, fieldId, useQuote } from "./QuoteProvider";
 
-const control = "h-[50px] w-full min-w-0 border-2 border-ink bg-white text-base font-semibold text-ink";
+const control = "h-12.5 w-full min-w-0 border-2 border-ink bg-white text-base font-semibold text-ink";
 
 // The yellow booking panel. On phones the name sign sits inside it; on desktop it sits in the hero.
 export function QuoteForm() {
@@ -18,13 +18,13 @@ export function QuoteForm() {
       id={BOOKING_PANEL_ID}
       tabIndex={-1}
       aria-labelledby="booking-title"
-      className="flex scroll-mt-4 flex-col gap-3.5 border-y-3 border-ink bg-sign px-5 py-[22px] lg:gap-4 lg:border-y-0 lg:border-l-3 lg:px-9 lg:pt-9 lg:pb-8"
+      className="flex scroll-mt-4 flex-col gap-3.5 border-y-3 border-ink bg-sign px-5 py-5.5 lg:gap-4 lg:border-y-0 lg:border-l-3 lg:px-9 lg:pt-9 lg:pb-8"
     >
       <div className="flex items-baseline justify-between gap-3">
-        <h2 id="booking-title" className="text-[19px] font-black lg:text-[22px]">
+        <h2 id="booking-title" className="text-lead font-black lg:text-title-sm">
           {t.form.title}
         </h2>
-        <p className="font-mono text-[11px] font-bold lg:text-xs">
+        <p className="font-mono text-2xs font-bold lg:text-xs">
           {q.quote.km} KM · {formatDuration(q.quote.minutes, locale)}
         </p>
       </div>
@@ -67,25 +67,17 @@ export function QuoteForm() {
             <input
               id={fieldId("date")}
               type="datetime-local"
-              required
               value={q.date}
               onChange={(e) => q.setDate(e.target.value)}
-              aria-invalid={q.errors.date ? true : undefined}
-              aria-describedby={q.errors.date ? "booking-date-error" : undefined}
-              className={`${control} px-1.5 text-[13px] lg:px-2.5 lg:text-[15px]`}
+              className={`${control} px-1.5 text-caption lg:px-2.5 lg:text-body-sm`}
             />
-            {q.errors.date && (
-              <p id="booking-date-error" className="text-sm font-bold">
-                {t.form.errDate}
-              </p>
-            )}
           </div>
 
           <div role="group" aria-labelledby="booking-passengers-label" className="flex min-w-0 flex-col gap-1.5">
             <span id="booking-passengers-label" className="label-mono">
               {t.form.passengers}
             </span>
-            <div className="grid h-[50px] grid-cols-[44px_1fr_44px] border-2 border-ink bg-white">
+            <div className="grid h-12.5 grid-cols-[44px_1fr_44px] border-2 border-ink bg-white">
               <button
                 type="button"
                 onClick={() => q.changePassengers(-1)}
@@ -95,7 +87,7 @@ export function QuoteForm() {
               >
                 −
               </button>
-              <output aria-live="polite" className="flex items-center justify-center text-[17px] font-extrabold">
+              <output aria-live="polite" className="flex items-center justify-center text-body-lg font-extrabold">
                 {q.passengers}
               </output>
               <button
@@ -119,19 +111,11 @@ export function QuoteForm() {
               type="text"
               autoComplete="name"
               maxLength={40}
-              required
               value={q.name}
               onChange={(e) => q.setName(e.target.value)}
               placeholder="Anna Weber"
-              aria-invalid={q.errors.name ? true : undefined}
-              aria-describedby={q.errors.name ? "booking-name-error" : undefined}
               className={`${control} px-3`}
             />
-            {q.errors.name && (
-              <p id="booking-name-error" className="text-sm font-bold">
-                {t.form.errName}
-              </p>
-            )}
           </div>
         </div>
 
@@ -141,28 +125,24 @@ export function QuoteForm() {
 
         <div aria-live="polite" className="mt-1 flex items-end justify-between gap-3 border-t-2 border-ink pt-3 lg:pt-4">
           <p className="flex items-baseline gap-2 lg:flex-col lg:items-start lg:gap-0.5">
-            <span className="text-5xl leading-none font-black tracking-[-0.04em] lg:text-[64px]">{price}</span>
-            <span className="text-[15px] font-bold lg:text-base">{t.form.fixed}</span>
+            <span className="text-5xl leading-none font-black tracking-display-tight lg:text-display">{price}</span>
+            <span className="text-body-sm font-bold lg:text-base">
+              {t.form.fixed}
+              {locale === "ro" && <span className="font-semibold"> · {formatEuro(q.quote.price, locale)}</span>}
+            </span>
           </p>
-          <p className="max-w-[120px] text-right text-xs font-semibold lg:max-w-[190px] lg:text-sm">
-            {q.quote.vehicle === "car" ? t.form.car : t.form.minibus}
-          </p>
+          <p className="max-w-30 text-right text-xs font-semibold lg:max-w-47.5 lg:text-sm">{q.quote.vehicle === "car" ? t.form.car : t.form.minibus}</p>
         </div>
 
         <button
           type="submit"
-          className="flex h-14 items-center justify-between bg-ink px-[18px] text-[17px] font-extrabold text-sign hover:bg-black lg:h-[60px] lg:px-[22px] lg:text-lg"
+          className="flex h-14 items-center justify-between bg-ink px-4.5 text-body-lg font-extrabold text-sign hover:bg-black lg:h-15 lg:px-5.5 lg:text-lg"
         >
           <span>{t.form.book}</span>
           <span aria-hidden="true">→</span>
         </button>
 
-        {q.reference && (
-          <p role="status" className="border-2 border-ink bg-white px-3.5 py-3 text-[15px] leading-[1.45]">
-            {t.form.booked} <b className="font-mono">{q.reference}</b>
-          </p>
-        )}
-        <p className="text-[13px] font-semibold">{t.form.included}</p>
+        <p className="text-caption font-semibold">{t.form.included}</p>
         <p aria-live="polite" className="sr-only">
           {q.announcement}
         </p>

@@ -1,3 +1,4 @@
+import { bookRo } from "./book-ro";
 import type { Dictionary } from "./en";
 
 // Romanian copy (informal "tu"). Draft from the Claude Design hand-off, for the owner's review.
@@ -33,9 +34,6 @@ export const ro: Dictionary = {
     car: "Autoturism · max. 4 pasageri",
     minibus: "Microbuz · 5–8 pasageri",
     book: "Rezervă acest transfer",
-    errName: "Adaugă numele pentru pancartă, ca șoferul să te găsească.",
-    errDate: "Alege data și ora preluării.",
-    booked: "Rezervat (demo). Referință",
     included: "Combustibil, bagaje și 60 min de așteptare incluse.",
   },
   routes: {
@@ -82,4 +80,6 @@ export const ro: Dictionary = {
     whatsapp: "Scrie-ne pe WhatsApp",
     demo: "Acesta este un proiect concept, deci WhatsApp nu e conectat. Numărul de telefon și adresa de e-mail sunt exemple.",
   },
+  map: { mountains: "Carpați", label: "Harta rutei de la {from} la {to}, circa {km} km." },
+  book: bookRo,
 };

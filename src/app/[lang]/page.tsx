@@ -27,14 +27,14 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_520px] lg:border-b-3 lg:border-ink">
             <div className="flex flex-col gap-3.5 px-5 pt-7 pb-6 lg:justify-between lg:gap-8 lg:px-12 lg:py-16">
               <div className="flex flex-col gap-3.5 lg:gap-6">
-                <h1 className="text-[40px] leading-[0.98] font-black tracking-[-0.035em] text-balance wrap-break-word hyphens-auto lg:text-[80px] lg:leading-[0.95] lg:tracking-[-0.04em]">
+                <h1 className="text-display-sm leading-display font-black tracking-display text-balance wrap-break-word hyphens-auto lg:text-display-xl lg:leading-display-tight lg:tracking-display-tight">
                   {t.hero.title}
                 </h1>
-                <p className="text-base leading-normal text-pretty text-muted lg:max-w-[540px] lg:text-[19px]">{t.hero.sub}</p>
+                <p className="text-base leading-normal text-pretty text-muted lg:max-w-135 lg:text-lead">{t.hero.sub}</p>
               </div>
               <ul aria-label={t.hero.destinationsLabel} className="hidden flex-wrap gap-2 lg:flex">
                 {DESTINATIONS.map((id) => (
-                  <li key={id} className="flex gap-2.5 bg-ink px-3.5 py-2.5 text-[15px] font-bold text-paper">
+                  <li key={id} className="flex gap-2.5 bg-ink px-3.5 py-2.5 text-body-sm font-bold text-paper">
                     <span aria-hidden="true" className="text-sign">
                       →
                     </span>
@@ -44,7 +44,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               </ul>
               <div className="hidden items-center gap-6 lg:flex">
                 <NameSign size="large" />
-                <p className="max-w-[200px] text-[15px] leading-[1.45] text-muted">
+                <p className="max-w-50 text-body-sm leading-note text-muted">
                   <span aria-hidden="true">← </span>
                   {t.hero.signNote}
                 </p>
@@ -55,8 +55,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
           <section id="routes" aria-labelledby="routes-title" className="scroll-mt-4">
             <SectionBar id="routes" number={1} title={t.routes.title} />
-            <div className="flex flex-col gap-5 px-5 pt-[18px] pb-7 md:px-8 md:pt-10 md:pb-16 lg:px-12">
-              <p className="hidden text-[17px] text-muted md:block">{t.routes.note}</p>
+            <div className="flex flex-col gap-5 px-5 pt-4.5 pb-7 md:px-8 md:pt-10 md:pb-16 lg:px-12">
+              <p className="hidden text-body-lg text-muted md:block">{t.routes.note}</p>
               <div className="hidden md:block">
                 <RouteMatrix />
               </div>

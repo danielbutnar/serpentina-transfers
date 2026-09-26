@@ -1,3 +1,5 @@
+import { bookEn } from "./book-en";
+
 // English copy. Base texts come from the Claude Design hand-off; ro.ts and de.ts must have the same shape.
 export const en = {
   meta: {
@@ -31,9 +33,6 @@ export const en = {
     car: "Car · up to 4 passengers",
     minibus: "Minibus · 5–8 passengers",
     book: "Book this transfer",
-    errName: "Add the name for the sign so your driver can find you.",
-    errDate: "Choose the date and time of your pickup.",
-    booked: "Booked (demo). Reference",
     included: "Fuel, luggage and 60 min of waiting included.",
   },
   routes: {
@@ -80,6 +79,8 @@ export const en = {
     whatsapp: "Message us on WhatsApp",
     demo: "This is a concept, so WhatsApp isn’t connected. The phone number and email address are placeholders.",
   },
+  map: { mountains: "Carpathians", label: "Map of the route from {from} to {to}, about {km} km." },
+  book: bookEn,
 };
 
 export type Dictionary = typeof en;

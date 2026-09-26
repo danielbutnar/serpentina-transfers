@@ -2,7 +2,7 @@
   "max": {
     "hex-outside-tokens": 0,
     "svg-hex": 8,
-    "tailwind-arbitrary": 112,
+    "tailwind-arbitrary": 19,
     "tailwind-arbitrary-color": 0,
     "font-size-literals": 1,
     "font-size-distinct": 1,
@@ -15,13 +15,13 @@
     "calibration-hex": 8,
     "soft-shadow": 0,
     "gradients": 1,
-    "eyebrow": 5,
+    "eyebrow": 4,
     "headline-accent": 1,
     "numbered-marker": 0,
-    "arrow-glyph": 7,
-    "middle-dot": 23,
+    "arrow-glyph": 9,
+    "middle-dot": 29,
     "em-dash-label": 0,
-    "mono-label": 18,
+    "mono-label": 21,
     "scroll-reveal": 0
   },
   "allow": {

@@ -17,14 +17,14 @@ export function Contact({ t }: { t: Dictionary }) {
         <p aria-hidden="true" className="font-mono text-xs font-bold text-sign uppercase md:text-base md:text-label">
           04 · {t.nav.contact}
         </p>
-        <h2 id="contact-title" className="text-[28px] leading-[1.05] font-black tracking-[-0.02em] md:text-[44px] md:leading-none md:tracking-[-0.03em]">
+        <h2 id="contact-title" className="text-title leading-sign font-black tracking-heading md:text-display-md md:leading-none md:tracking-title">
           {t.contact.title}
         </h2>
-        <p className="text-[15px] text-on-ink-muted md:text-[17px] md:text-muted">{t.contact.sub}</p>
+        <p className="text-body-sm text-on-ink-muted md:text-body-lg md:text-muted">{t.contact.sub}</p>
       </div>
       <div className="on-ink flex flex-col justify-center gap-3.5 bg-ink px-5 pt-3.5 pb-7 md:gap-4 md:p-12">
         <WhatsAppDemoButton label={t.contact.whatsapp} note={t.contact.demo} />
-        <p className="flex flex-col gap-1 font-mono text-[13px] text-paper md:flex-row md:justify-between md:text-sm">
+        <p className="flex flex-col gap-1 font-mono text-caption text-paper md:flex-row md:justify-between md:text-sm">
           <span className="whitespace-nowrap">{PHONE}</span>
           <span className="whitespace-nowrap">{EMAIL}</span>
         </p>

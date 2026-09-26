@@ -10,10 +10,26 @@ export const LANGUAGE_NAMES: Record<Locale, string> = { en: "English", ro: "Rom√
 
 const INTL_TAGS: Record<Locale, string> = { en: "en-GB", ro: "ro-RO", de: "de-DE" };
 
-export function formatPrice(euro: number, locale: Locale): string {
+// Fares are set in euro. The Romanian page shows lei at a fixed sample rate, with euro as a hint.
+export const LEI_PER_EURO = 5;
+
+export function formatEuro(euro: number, locale: Locale): string {
   return new Intl.NumberFormat(INTL_TAGS[locale], { style: "currency", currency: "EUR", currencyDisplay: "narrowSymbol", maximumFractionDigits: 0 }).format(
     euro,
   );
+}
+
+export function formatPrice(euro: number, locale: Locale): string {
+  if (locale !== "ro") return formatEuro(euro, locale);
+  return new Intl.NumberFormat(INTL_TAGS.ro, { style: "currency", currency: "RON", currencyDisplay: "narrowSymbol", maximumFractionDigits: 0 }).format(
+    euro * LEI_PER_EURO,
+  );
+}
+
+export function formatDate(date: string, locale: Locale): string {
+  const [y, m, d] = date.split("-").map(Number);
+  if (!y || !m || !d) return date;
+  return new Intl.DateTimeFormat(INTL_TAGS[locale], { weekday: "short", day: "numeric", month: "short", year: "numeric" }).format(new Date(y, m - 1, d));
 }
 
 export function formatDuration(minutes: number, locale: Locale): string {

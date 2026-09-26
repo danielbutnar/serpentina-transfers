@@ -21,8 +21,8 @@ export default function GlobalNotFound() {
           Skip to content
         </a>
         <main id="main" tabIndex={-1} className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center gap-6 px-5 py-16">
-          <p className="font-mono text-sm font-bold tracking-[0.1em] uppercase">404</p>
-          <h1 className="text-4xl font-black tracking-[-0.03em] md:text-6xl">This page doesn’t exist</h1>
+          <p className="font-mono text-sm font-bold tracking-widest uppercase">404</p>
+          <h1 className="text-4xl font-black tracking-title md:text-6xl">This page doesn’t exist</h1>
           <p className="text-lg text-muted">The link may be old. Choose a language to go to the home page.</p>
           <ul className="flex flex-wrap gap-3">
             {LOCALES.map((l) => (
