@@ -1,0 +1,48 @@
+import type { AdminDictionary } from "./admin-en";
+
+// German copy for the owner dashboard (formal "Sie"). Draft for the owner's review.
+export const adminDe: AdminDictionary = {
+  metaTitle: "Inhaber-Dashboard · Serpentina Transfers (Konzept)",
+  title: "Inhaber-Dashboard",
+  demo: "Inhaber-Demo mit Beispielfahrten. Änderungen werden nur in diesem Browser gespeichert.",
+  reset: "Demo zurücksetzen",
+  resetDone: "Demo zurückgesetzt: Fahrer und Preise sind wieder die Beispieldaten.",
+  stats: { rides: "Fahrten heute", unassigned: "Ohne Fahrer", delayed: "Verspätete Flüge", revenue: "Umsatz heute" },
+  today: { title: "Heutige Fahrten", caption: "Fahrten am {date}, nach Abholzeit" },
+  cols: { pickup: "Abholung", passenger: "Fahrgast", route: "Strecke", flight: "Flug", vehicle: "Fahrzeug", driver: "Fahrer", status: "Status" },
+  status: {
+    scheduled: "Geplant",
+    enRoute: "Fahrer unterwegs",
+    waiting: "Wartet in der Ankunftshalle",
+    onBoard: "Fahrgast an Bord",
+    completed: "Abgeschlossen",
+  },
+  delayed: "Flug {minutes} Min. verspätet",
+  noDriver: "Noch kein Fahrer",
+  assignLabel: "Fahrer für {passenger} um {time} Uhr",
+  choose: "Fahrer zuweisen",
+  assigned: "{driver} übernimmt die Abholung um {time} Uhr.",
+  web: {
+    title: "Buchungen über die Website",
+    note: "Buchungen auf dieser Website, in diesem Browser.",
+    empty: "Noch keine Website-Buchungen. Buchen Sie einen Transfer, dann erscheint er hier.",
+    book: "Transfer buchen",
+    ref: "Nummer",
+    date: "Abholung",
+    payment: "Zahlung",
+    total: "Gesamt",
+    status: "Status",
+  },
+  drivers: { title: "Fahrer", speaks: "Spricht", ridesToday: "Fahrten heute" },
+  prices: {
+    title: "Streckenpreise",
+    note: "Pkw-Preis pro Strecke in Euro. Der Kleinbus kostet das 1,6-Fache. Gespeicherte Preise gelten auf der ganzen Website in diesem Browser.",
+    cell: "Pkw-Preis in Euro von {from} nach {to}",
+    save: "Preise speichern",
+    saved: "Preise gespeichert. Neue Buchungen nutzen sie ab sofort, bestehende behalten ihren Preis.",
+    reset: "Zurück zu den Beispielpreisen",
+    resetDone: "Beispielpreise wiederhergestellt.",
+    invalid: "Geben Sie einen ganzen Preis zwischen 10 € und 1.000 € ein.",
+    errors: "Bitte prüfen Sie die markierten Preise: ganze Euro zwischen 10 und 1.000.",
+  },
+};

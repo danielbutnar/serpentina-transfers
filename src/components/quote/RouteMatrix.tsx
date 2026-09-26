@@ -1,7 +1,7 @@
 "use client";
 
 import { fill, formatPrice } from "@/i18n/config";
-import { AIRPORTS, DESTINATIONS, DESTINATION_NAMES, FARES, minibusPrice } from "@/lib/fares";
+import { AIRPORTS, DESTINATIONS, DESTINATION_NAMES, minibusPrice } from "@/lib/fares";
 import { useQuote } from "./QuoteProvider";
 
 // Desktop and tablet: every airport against every destination. A price loads that route into the form.
@@ -32,7 +32,7 @@ export function RouteMatrix() {
               {DESTINATION_NAMES[dest]}
             </th>
             {AIRPORTS.map((code) => {
-              const car = FARES[code][dest].car;
+              const car = q.prices[code][dest];
               const selected = q.from === code && q.to === dest;
               return (
                 <td key={code} className="border-l border-ink p-0">

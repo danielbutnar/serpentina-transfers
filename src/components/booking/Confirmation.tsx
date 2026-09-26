@@ -5,7 +5,7 @@ import type { Ref } from "react";
 import { fill, formatDate, formatPrice, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { priceLines } from "@/lib/booking";
-import { DESTINATION_NAMES, FARES } from "@/lib/fares";
+import { DESTINATION_NAMES, FARES, type PriceTable } from "@/lib/fares";
 import { buildIcs, type CalendarEvent } from "@/lib/ics";
 import { clearFlow } from "@/lib/storage";
 import { NameSignCard } from "../NameSignCard";
@@ -47,7 +47,19 @@ function downloadCalendar(s: FlowState, t: Dictionary) {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-export function Confirmation({ s, t, locale, headingRef }: { s: FlowState; t: Dictionary; locale: Locale; headingRef: Ref<HTMLHeadingElement> }) {
+export function Confirmation({
+  s,
+  t,
+  locale,
+  prices,
+  headingRef,
+}: {
+  s: FlowState;
+  t: Dictionary;
+  locale: Locale;
+  prices: PriceTable;
+  headingRef: Ref<HTMLHeadingElement>;
+}) {
   const c = t.book.confirm;
   const fare = FARES[s.from][s.to];
   const routeText = `${t.airports[s.from]} → ${DESTINATION_NAMES[s.to]}`;
@@ -114,7 +126,7 @@ export function Confirmation({ s, t, locale, headingRef }: { s: FlowState; t: Di
         />
         <p className="mt-4 flex items-end justify-between border-t-3 border-ink pt-3">
           <span className="text-lg font-black">{t.book.summary.total}</span>
-          <span className="text-4xl font-black tracking-title">{formatPrice(priceLines(s).total, locale)}</span>
+          <span className="text-4xl font-black tracking-title">{formatPrice(priceLines(s, prices).total, locale)}</span>
         </p>
         <p className="mt-1 text-sm font-bold">{s.payment === "card" ? t.book.summary.paymentCard : t.book.summary.paymentDriver}</p>
       </aside>

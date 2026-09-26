@@ -1,0 +1,42 @@
+import type { AdminDictionary } from "./admin-en";
+
+// Romanian copy for the owner dashboard (informal "tu"). Draft for the owner's review.
+export const adminRo: AdminDictionary = {
+  metaTitle: "Panoul proprietarului · Serpentina Transfers (concept)",
+  title: "Panoul proprietarului",
+  demo: "Demo pentru proprietar, cu curse de exemplu. Modificările se salvează doar în acest browser.",
+  reset: "Resetează demo-ul",
+  resetDone: "Demo resetat: șoferii și prețurile au revenit la datele de exemplu.",
+  stats: { rides: "Curse azi", unassigned: "Fără șofer", delayed: "Zboruri întârziate", revenue: "Încasări azi" },
+  today: { title: "Cursele de azi", caption: "Cursele din {date}, după ora preluării" },
+  cols: { pickup: "Preluare", passenger: "Pasager", route: "Rută", flight: "Zbor", vehicle: "Mașină", driver: "Șofer", status: "Stare" },
+  status: { scheduled: "Programată", enRoute: "Șoferul e pe drum", waiting: "Așteaptă la sosiri", onBoard: "Pasager preluat", completed: "Finalizată" },
+  delayed: "Zbor întârziat {minutes} min",
+  noDriver: "Fără șofer",
+  assignLabel: "Șofer pentru {passenger}, ora {time}",
+  choose: "Alocă șofer",
+  assigned: "{driver} preia cursa de la {time}.",
+  web: {
+    title: "Rezervări de pe site",
+    note: "Rezervările făcute pe acest site, în acest browser.",
+    empty: "Încă nu există rezervări de pe site. Rezervă un transfer și apare aici.",
+    book: "Rezervă un transfer",
+    ref: "Cod",
+    date: "Preluare",
+    payment: "Plata",
+    total: "Total",
+    status: "Stare",
+  },
+  drivers: { title: "Șoferi", speaks: "Vorbește", ridesToday: "Curse azi" },
+  prices: {
+    title: "Prețuri pe rute",
+    note: "Prețul pentru autoturism pe fiecare rută, în euro (pe site se afișează în lei). Microbuzul costă de 1,6 ori mai mult. Prețurile salvate se aplică întregului site, în acest browser.",
+    cell: "Prețul autoturismului în euro de la {from} la {to}",
+    save: "Salvează prețurile",
+    saved: "Prețuri salvate. Rezervările noi le folosesc de acum; cele existente își păstrează prețul.",
+    reset: "Înapoi la prețurile de exemplu",
+    resetDone: "Prețurile de exemplu au fost refăcute.",
+    invalid: "Scrie un preț întreg între 10 și 1.000 €.",
+    errors: "Verifică prețurile marcate: euro întregi între 10 și 1.000.",
+  },
+};

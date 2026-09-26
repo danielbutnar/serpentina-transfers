@@ -5,7 +5,8 @@ import { createContext, useContext, useMemo, useState, type ReactNode } from "re
 import { fill, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { splitDateTime } from "@/lib/booking";
-import { DESTINATION_NAMES, clampPassengers, quote, type AirportCode, type DestinationId, type Quote } from "@/lib/fares";
+import { DESTINATION_NAMES, clampPassengers, quote, type AirportCode, type DestinationId, type PriceTable, type Quote } from "@/lib/fares";
+import { usePrices } from "@/lib/prices";
 import { saveDraft } from "@/lib/storage";
 
 // One quote state shared by the hero form, the name sign and the price tables, so picking a price
@@ -26,6 +27,7 @@ type QuoteContextValue = QuoteState & {
   locale: Locale;
   t: Dictionary;
   quote: Quote;
+  prices: PriceTable;
   setFrom: (from: AirportCode) => void;
   setTo: (to: DestinationId) => void;
   changePassengers: (delta: number) => void;
@@ -56,6 +58,7 @@ function scrollToPanel() {
 
 export function QuoteProvider({ locale, t, children }: { locale: Locale; t: Dictionary; children: ReactNode }) {
   const router = useRouter();
+  const prices = usePrices();
   const [state, setState] = useState<QuoteState>({ from: "OTP", to: "brasov", passengers: 2, name: "", date: "", announcement: "" });
 
   const value = useMemo<QuoteContextValue>(() => {
@@ -64,7 +67,8 @@ export function QuoteProvider({ locale, t, children }: { locale: Locale; t: Dict
       ...state,
       locale,
       t,
-      quote: quote(state.from, state.to, state.passengers),
+      quote: quote(state.from, state.to, state.passengers, prices),
+      prices,
       setFrom: (from) => update({ from, announcement: "" }),
       setTo: (to) => update({ to, announcement: "" }),
       changePassengers: (delta) => setState((s) => ({ ...s, passengers: clampPassengers(s.passengers + delta) })),
@@ -79,7 +83,7 @@ export function QuoteProvider({ locale, t, children }: { locale: Locale; t: Dict
         router.push(`/${locale}/book/`);
       },
     };
-  }, [state, locale, t, router]);
+  }, [state, locale, t, router, prices]);
 
   return <QuoteContext.Provider value={value}>{children}</QuoteContext.Provider>;
 }

@@ -20,6 +20,7 @@ import {
 } from "@/lib/booking";
 import { AIRPORTS, DESTINATIONS, DESTINATION_NAMES, MAX_PASSENGERS, MIN_PASSENGERS, bookingReference, isAirport, isDestination } from "@/lib/fares";
 import { findFlight, normalizeFlightNumber, pickupTime } from "@/lib/flights";
+import { usePrices } from "@/lib/prices";
 import { loadDraft, loadFlow, saveBooking, saveFlow } from "@/lib/storage";
 import { NameSignCard } from "../NameSignCard";
 import { Counter } from "../ui/Counter";
@@ -39,6 +40,7 @@ function today(): string {
 // Rendered only in the browser (see BookPage): it starts from the saved flow or the home-page draft.
 export function BookingFlow({ locale, t }: { locale: Locale; t: Dictionary }) {
   const b = t.book;
+  const prices = usePrices();
   const [s, setS] = useState<FlowState>(() => loadFlow<FlowState>() ?? initialState(loadDraft()));
   const [errors, setErrors] = useState<Errors>({});
   const [flightNote, setFlightNote] = useState("");
@@ -151,7 +153,7 @@ export function BookingFlow({ locale, t }: { locale: Locale; t: Dictionary }) {
       phone: s.phone.trim(),
       notes: s.notes.trim(),
       payment: s.payment,
-      total: priceLines(s).total,
+      total: priceLines(s, prices).total,
       status: "confirmed",
     });
     set({ step: 4, ref });
@@ -162,11 +164,11 @@ export function BookingFlow({ locale, t }: { locale: Locale; t: Dictionary }) {
     set({ step: (s.step - 1) as Step });
   };
 
-  if (s.step === 4) return <Confirmation s={s} t={t} locale={locale} headingRef={headingRef} />;
+  if (s.step === 4) return <Confirmation s={s} t={t} locale={locale} prices={prices} headingRef={headingRef} />;
 
   const load = { passengers: s.passengers, suitcases: s.suitcases, skis: s.skis };
   const cleanErrors = Object.fromEntries(Object.entries(errors).filter(([, v]) => v)) as Errors;
-  const total = formatPrice(priceLines(s).total, locale);
+  const total = formatPrice(priceLines(s, prices).total, locale);
 
   return (
     <>
@@ -185,7 +187,7 @@ export function BookingFlow({ locale, t }: { locale: Locale; t: Dictionary }) {
               </span>
             </summary>
             <div className="border-t-2 border-ink bg-sign p-4">
-              <Summary s={s} t={t} locale={locale} />
+              <Summary s={s} t={t} locale={locale} prices={prices} />
             </div>
           </details>
 
@@ -353,6 +355,7 @@ export function BookingFlow({ locale, t }: { locale: Locale; t: Dictionary }) {
                     to={s.to}
                     locale={locale}
                     t={t}
+                    prices={prices}
                   />
                   <p aria-live="polite" className="text-sm font-bold empty:hidden">
                     {vehicleNote}
@@ -529,7 +532,7 @@ export function BookingFlow({ locale, t }: { locale: Locale; t: Dictionary }) {
         <aside aria-label={b.summary.title} className="hidden border-l-3 border-ink bg-sign lg:block">
           <div className="sticky top-0 flex flex-col gap-4 px-9 py-10">
             <h2 className="text-title-sm font-black">{b.summary.title}</h2>
-            <Summary s={s} t={t} locale={locale} />
+            <Summary s={s} t={t} locale={locale} prices={prices} />
             {s.step >= 2 && s.name.trim() && <NameSignCard name={s.name} placeholder={t.sign.yourName} company={t.sign.company} size="compact" />}
           </div>
         </aside>

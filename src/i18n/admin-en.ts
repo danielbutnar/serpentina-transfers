@@ -1,0 +1,42 @@
+// English copy for the owner dashboard (/[lang]/admin). admin-ro.ts and admin-de.ts have the same shape.
+export const adminEn = {
+  metaTitle: "Owner dashboard · Serpentina Transfers (concept)",
+  title: "Owner dashboard",
+  demo: "Owner demo with sample rides. Changes are saved only in this browser.",
+  reset: "Reset demo",
+  resetDone: "Demo reset: drivers and prices are back to the sample data.",
+  stats: { rides: "Rides today", unassigned: "Without a driver", delayed: "Delayed flights", revenue: "Revenue today" },
+  today: { title: "Today’s rides", caption: "Rides on {date}, by pickup time" },
+  cols: { pickup: "Pickup", passenger: "Passenger", route: "Route", flight: "Flight", vehicle: "Vehicle", driver: "Driver", status: "Status" },
+  status: { scheduled: "Scheduled", enRoute: "Driver on the way", waiting: "Waiting at arrivals", onBoard: "On board", completed: "Completed" },
+  delayed: "Flight delayed {minutes} min",
+  noDriver: "No driver yet",
+  assignLabel: "Driver for {passenger} at {time}",
+  choose: "Assign driver",
+  assigned: "{driver} now drives the {time} pickup.",
+  web: {
+    title: "Bookings from the website",
+    note: "Bookings made on this site in this browser.",
+    empty: "No website bookings yet. Book a transfer and it appears here.",
+    book: "Book a transfer",
+    ref: "Reference",
+    date: "Pickup",
+    payment: "Payment",
+    total: "Total",
+    status: "Status",
+  },
+  drivers: { title: "Drivers", speaks: "Speaks", ridesToday: "Rides today" },
+  prices: {
+    title: "Route prices",
+    note: "Car price per route, in euro. The minibus costs 1.6 times as much. Saved prices apply to the whole site in this browser.",
+    cell: "Car price in euro from {from} to {to}",
+    save: "Save prices",
+    saved: "Prices saved. New bookings use them from now on; existing bookings keep their price.",
+    reset: "Back to sample prices",
+    resetDone: "Sample prices restored.",
+    invalid: "Enter a whole price between €10 and €1,000.",
+    errors: "Check the marked prices: whole euros between 10 and 1,000.",
+  },
+};
+
+export type AdminDictionary = typeof adminEn;

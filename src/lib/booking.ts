@@ -1,4 +1,4 @@
-import { FARES, minibusPrice, type AirportCode, type DestinationId } from "./fares";
+import { DEFAULT_PRICES, minibusPrice, type AirportCode, type DestinationId, type PriceTable } from "./fares";
 
 // Booking rules for the three-step flow. Pure functions, tested in booking.test.ts.
 
@@ -37,15 +37,15 @@ export const MAX_CHILD_SEATS = 4;
 export const MIN_NOTICE_HOURS = 6;
 
 // Sedan and estate cost the car price; the minibus costs 1.6 times as much (see fares.ts).
-export function vehiclePrice(from: AirportCode, to: DestinationId, vehicle: VehicleId): number {
-  const car = FARES[from][to].car;
+export function vehiclePrice(from: AirportCode, to: DestinationId, vehicle: VehicleId, prices: PriceTable = DEFAULT_PRICES): number {
+  const car = prices[from][to];
   return vehicle === "minibus" ? minibusPrice(car) : car;
 }
 
 export type PriceInput = { from: AirportCode; to: DestinationId; vehicle: VehicleId; skis: number; returnTrip: boolean };
 
-export function priceLines(input: PriceInput) {
-  const ride = vehiclePrice(input.from, input.to, input.vehicle);
+export function priceLines(input: PriceInput, prices: PriceTable = DEFAULT_PRICES) {
+  const ride = vehiclePrice(input.from, input.to, input.vehicle, prices);
   const skis = input.skis * SKI_BAG_PRICE;
   const legs = input.returnTrip ? 2 : 1;
   return { ride, skis, legs, total: (ride + skis) * legs };

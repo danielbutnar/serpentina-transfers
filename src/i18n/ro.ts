@@ -1,4 +1,5 @@
 import { bookRo } from "./book-ro";
+import { adminRo } from "./admin-ro";
 import { manageRo } from "./manage-ro";
 import type { Dictionary } from "./en";
 
@@ -84,5 +85,6 @@ export const ro: Dictionary = {
   map: { mountains: "Carpați", label: "Harta rutei de la {from} la {to}, circa {km} km." },
   book: bookRo,
   manage: manageRo,
-  links: { label: "Mai multe", book: "Rezervă un transfer", manage: "Gestionează rezervarea" },
+  admin: adminRo,
+  links: { label: "Mai multe", book: "Rezervă un transfer", manage: "Gestionează rezervarea", owner: "Demo pentru proprietar" },
 };

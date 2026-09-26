@@ -35,8 +35,9 @@ export function RouteBoard() {
         {DESTINATIONS.map((dest) => {
           const fare = FARES[airport][dest];
           const selected = q.from === airport && q.to === dest;
-          const car = formatPrice(fare.car, locale);
-          const minibus = formatPrice(minibusPrice(fare.car), locale);
+          const carPrice = q.prices[airport][dest];
+          const car = formatPrice(carPrice, locale);
+          const minibus = formatPrice(minibusPrice(carPrice), locale);
           return (
             <li key={dest}>
               <button

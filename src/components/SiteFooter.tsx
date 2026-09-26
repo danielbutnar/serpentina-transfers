@@ -6,6 +6,7 @@ export function SiteFooter({ t, locale }: { t: Dictionary; locale: Locale }) {
   const links = [
     { href: `/${locale}/book/`, label: t.links.book },
     { href: `/${locale}/manage/`, label: t.links.manage },
+    { href: `/${locale}/admin/`, label: t.links.owner },
   ];
   return (
     <footer className="flex flex-col gap-3 bg-sign px-5 py-4 font-mono text-2xs font-bold tracking-footer uppercase md:flex-row md:items-center md:justify-between md:px-12 md:text-xs">

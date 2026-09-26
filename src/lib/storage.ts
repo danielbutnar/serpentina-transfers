@@ -120,3 +120,22 @@ export function useIsClient(): boolean {
     () => false,
   );
 }
+
+// Owner dashboard: drivers assigned to sample rides, by ride id.
+const ASSIGN_KEY = "serpentina:assignments";
+
+export function loadAssignments(): Record<string, string> {
+  return read<Record<string, string>>(local, ASSIGN_KEY) ?? {};
+}
+
+export function saveAssignments(value: Record<string, string>): void {
+  write(local, ASSIGN_KEY, value);
+}
+
+export function clearAssignments(): void {
+  try {
+    local().removeItem(ASSIGN_KEY);
+  } catch {
+    // Nothing stored.
+  }
+}

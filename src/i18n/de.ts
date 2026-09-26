@@ -1,4 +1,5 @@
 import { bookDe } from "./book-de";
+import { adminDe } from "./admin-de";
 import { manageDe } from "./manage-de";
 import type { Dictionary } from "./en";
 
@@ -85,5 +86,6 @@ export const de: Dictionary = {
   map: { mountains: "Karpaten", label: "Karte der Strecke von {from} nach {to}, etwa {km} km." },
   book: bookDe,
   manage: manageDe,
-  links: { label: "Mehr", book: "Transfer buchen", manage: "Buchung verwalten" },
+  admin: adminDe,
+  links: { label: "Mehr", book: "Transfer buchen", manage: "Buchung verwalten", owner: "Inhaber-Demo" },
 };

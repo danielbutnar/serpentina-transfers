@@ -1,16 +1,16 @@
 import { fill, formatDate, formatDuration, formatEuro, formatPrice, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { VEHICLES, priceLines } from "@/lib/booking";
-import { DESTINATION_NAMES, FARES } from "@/lib/fares";
+import { DESTINATION_NAMES, FARES, type PriceTable } from "@/lib/fares";
 import { RouteMap } from "../RouteMap";
 import type { FlowState } from "./flow-state";
 
 // The trip so far: map, route, times, load, vehicle and the price. Shown in the yellow side panel on
 // desktop and inside a <details> above the form on phones.
-export function Summary({ s, t, locale, showMap = true }: { s: FlowState; t: Dictionary; locale: Locale; showMap?: boolean }) {
+export function Summary({ s, t, locale, prices, showMap = true }: { s: FlowState; t: Dictionary; locale: Locale; prices: PriceTable; showMap?: boolean }) {
   const b = t.book.summary;
   const fare = FARES[s.from][s.to];
-  const p = priceLines(s);
+  const p = priceLines(s, prices);
   const money = (euro: number) => formatPrice(euro, locale);
   const rows: [string, string][] = [
     [b.outbound, [s.date && formatDate(s.date, locale), s.time].filter(Boolean).join(", ") || "–"],

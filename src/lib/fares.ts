@@ -72,12 +72,36 @@ export function clampPassengers(passengers: number): number {
   return Math.min(MAX_PASSENGERS, Math.max(MIN_PASSENGERS, Math.round(passengers)));
 }
 
+// Car prices per route. The owner dashboard can override them (stored in the browser, see prices.ts);
+// everything that shows or charges a price takes the table as an argument.
+export type PriceTable = Record<AirportCode, Record<DestinationId, number>>;
+
+export const DEFAULT_PRICES: PriceTable = Object.fromEntries(
+  AIRPORTS.map((a) => [a, Object.fromEntries(DESTINATIONS.map((d) => [d, FARES[a][d].car]))]),
+) as PriceTable;
+
+export const MIN_PRICE = 10;
+export const MAX_PRICE = 1000;
+
+// Accepts a stored table only if every route has a whole-euro price in range; anything else is ignored.
+export function parsePriceTable(value: unknown): PriceTable | null {
+  if (!value || typeof value !== "object") return null;
+  const table = value as Record<string, Record<string, unknown>>;
+  for (const a of AIRPORTS)
+    for (const d of DESTINATIONS) {
+      const v = table[a]?.[d];
+      if (typeof v !== "number" || !Number.isInteger(v) || v < MIN_PRICE || v > MAX_PRICE) return null;
+    }
+  return table as PriceTable;
+}
+
 export type Quote = { price: number; vehicle: Vehicle; km: number; minutes: number };
 
-export function quote(from: AirportCode, to: DestinationId, passengers: number): Quote {
+export function quote(from: AirportCode, to: DestinationId, passengers: number, prices: PriceTable = DEFAULT_PRICES): Quote {
   const fare = FARES[from][to];
+  const car = prices[from][to];
   const vehicle: Vehicle = clampPassengers(passengers) > CAR_MAX_PASSENGERS ? "minibus" : "car";
-  return { price: vehicle === "car" ? fare.car : minibusPrice(fare.car), vehicle, km: fare.km, minutes: fare.minutes };
+  return { price: vehicle === "car" ? car : minibusPrice(car), vehicle, km: fare.km, minutes: fare.minutes };
 }
 
 // "SRP-" plus four digits, as in the design's demo confirmation.

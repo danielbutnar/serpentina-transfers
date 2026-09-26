@@ -1,7 +1,7 @@
 import { fill, formatPrice, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { VEHICLES, fitProblem, vehiclePrice, type Load, type VehicleId } from "@/lib/booking";
-import type { AirportCode, DestinationId } from "@/lib/fares";
+import type { AirportCode, DestinationId, PriceTable } from "@/lib/fares";
 import { VehicleDrawing } from "../VehicleDrawing";
 
 // Native radio buttons styled as cards. A vehicle that cannot take the group is disabled and says why.
@@ -13,6 +13,7 @@ export function VehiclePicker({
   to,
   locale,
   t,
+  prices,
 }: {
   value: VehicleId;
   onChange: (v: VehicleId) => void;
@@ -21,6 +22,7 @@ export function VehiclePicker({
   to: DestinationId;
   locale: Locale;
   t: Dictionary;
+  prices: PriceTable;
 }) {
   return (
     <fieldset className="flex flex-col gap-2.5">
@@ -48,7 +50,7 @@ export function VehiclePicker({
                   />
                   <span className="text-lg font-black">{item.name}</span>
                 </span>
-                <span className="text-lg font-black">{formatPrice(vehiclePrice(from, to, id), locale)}</span>
+                <span className="text-lg font-black">{formatPrice(vehiclePrice(from, to, id, prices), locale)}</span>
               </span>
               <VehicleDrawing kind={id} className={`h-14 w-full ${problem ? "opacity-40" : ""}`} />
               <span className="font-mono text-xs uppercase">{item.spec}</span>

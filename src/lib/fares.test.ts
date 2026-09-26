@@ -1,6 +1,18 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { AIRPORTS, DESTINATIONS, FARES, bookingReference, clampPassengers, isAirport, isDestination, minibusPrice, quote } from "./fares";
+import {
+  AIRPORTS,
+  DEFAULT_PRICES,
+  parsePriceTable,
+  DESTINATIONS,
+  FARES,
+  bookingReference,
+  clampPassengers,
+  isAirport,
+  isDestination,
+  minibusPrice,
+  quote,
+} from "./fares";
 
 test("every airport has a fare to every destination", () => {
   for (const airport of AIRPORTS) {
@@ -47,4 +59,21 @@ test("booking references are SRP- plus four digits", () => {
     "SRP-9999",
   );
   assert.match(bookingReference(), /^SRP-\d{4}$/);
+});
+
+test("a changed price table changes the quote, the minibus follows", () => {
+  const prices = structuredClone(DEFAULT_PRICES);
+  prices.OTP.brasov = 120;
+  assert.equal(quote("OTP", "brasov", 2, prices).price, 120);
+  assert.equal(quote("OTP", "brasov", 6, prices).price, 190);
+  assert.equal(quote("OTP", "brasov", 2).price, 105);
+});
+
+test("stored price tables are accepted only when complete and in range", () => {
+  assert.deepEqual(parsePriceTable(structuredClone(DEFAULT_PRICES)), DEFAULT_PRICES);
+  const bad = structuredClone(DEFAULT_PRICES) as Record<string, Record<string, number>>;
+  bad.GHV.bran = 5;
+  assert.equal(parsePriceTable(bad), null);
+  assert.equal(parsePriceTable({ OTP: {} }), null);
+  assert.equal(parsePriceTable("x"), null);
 });
