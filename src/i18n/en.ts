@@ -1,6 +1,7 @@
 import { bookEn } from "./book-en";
 import { adminEn } from "./admin-en";
 import { routesEn } from "./routes-en";
+import { caseEn } from "./case-en";
 import { manageEn } from "./manage-en";
 
 // English copy. Base texts come from the Claude Design hand-off; ro.ts and de.ts must have the same shape.
@@ -46,7 +47,7 @@ export const en = {
     caption: "Price per vehicle from each airport to each destination",
     airportsLabel: "Airport",
     destination: "Destination",
-    cell: "{from} to {to}: car {car}, minibus {minibus}. Load into the form",
+    loadHint: "Load into the form",
     loaded: "{from} to {to} is now in the form.",
   },
   fleet: {
@@ -87,6 +88,7 @@ export const en = {
   manage: manageEn,
   admin: adminEn,
   routePages: routesEn,
+  caseStudy: caseEn,
   links: { label: "More", book: "Book a transfer", manage: "Manage booking", owner: "Owner demo" },
 };
 

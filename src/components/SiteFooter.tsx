@@ -8,6 +8,7 @@ export function SiteFooter({ t, locale }: { t: Dictionary; locale: Locale }) {
     { href: `/${locale}/routes/`, label: t.routePages.index.title },
     { href: `/${locale}/manage/`, label: t.links.manage },
     { href: `/${locale}/admin/`, label: t.links.owner },
+    { href: `/${locale}/case-study/`, label: t.caseStudy.eyebrow },
   ];
   return (
     <footer className="flex flex-col gap-3 bg-sign px-5 py-4 font-mono text-2xs font-bold tracking-footer uppercase md:flex-row md:items-center md:justify-between md:px-12 md:text-xs">

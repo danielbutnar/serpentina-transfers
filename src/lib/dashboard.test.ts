@@ -17,10 +17,17 @@ test("the status follows the clock", () => {
   assert.equal(rideStatus(anna, at(18, 30)), "completed");
 });
 
+test("a ride without a driver stays unassigned, even after its pickup time", () => {
+  const open = SAMPLE_RIDES.find((r) => r.id === "r8")!;
+  assert.equal(rideStatus(open, at(23, 0)), "unassigned");
+  assert.equal(rideStatus({ ...open, driver: "Ioana" }, at(23, 0)), "completed");
+});
+
 test("assigning a driver fills the gap and counts per driver", () => {
-  const rides = withAssignments(SAMPLE_RIDES, { r4: "Ioana" });
-  assert.equal(rides.find((r) => r.id === "r4")!.driver, "Ioana");
+  const rides = withAssignments(SAMPLE_RIDES, { r8: "Ioana" });
+  assert.equal(rides.find((r) => r.id === "r8")!.driver, "Ioana");
   const counts = ridesPerDriver(rides);
   assert.equal(counts.Ioana, 2);
-  assert.equal(counts.Sorin, 2);
+  assert.equal(counts.Radu, 2);
+  assert.equal(counts.Sorin, 1);
 });

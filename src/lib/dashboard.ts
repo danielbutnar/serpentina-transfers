@@ -21,7 +21,7 @@ export const SAMPLE_RIDES: Ride[] = [
   { id: "r1", pickup: "07:30", passenger: "Maria Popescu", from: "OTP", to: "sinaia", flight: null, vehicle: "sedan", passengers: 2, driver: "Radu" },
   { id: "r2", pickup: "09:55", passenger: "Jonas Weber", from: "CLJ", to: "brasov", flight: "ZZ 4402", vehicle: "minibus", passengers: 5, driver: "Sorin" },
   { id: "r3", pickup: "12:05", passenger: "Emma Clarke", from: "OTP", to: "brasov", flight: "ZZ 2081", vehicle: "estate", passengers: 3, driver: "Ioana" },
-  { id: "r4", pickup: "13:20", passenger: "Lukas Brandt", from: "GHV", to: "poiana", flight: "ZZ 5120", vehicle: "estate", passengers: 2, driver: null },
+  { id: "r4", pickup: "13:20", passenger: "Lukas Brandt", from: "GHV", to: "poiana", flight: "ZZ 5120", vehicle: "estate", passengers: 2, driver: "Radu" },
   {
     id: "r5",
     pickup: "14:50",
@@ -36,7 +36,7 @@ export const SAMPLE_RIDES: Ride[] = [
   },
   { id: "r6", pickup: "16:35", passenger: "Sofia Marin", from: "SBZ", to: "bran", flight: "ZZ 3310", vehicle: "sedan", passengers: 1, driver: "Andrei" },
   { id: "r7", pickup: "18:00", passenger: "Petra Novak", from: "GHV", to: "predeal", flight: null, vehicle: "minibus", passengers: 6, driver: null },
-  { id: "r8", pickup: "21:30", passenger: "Chiara Rossi", from: "GHV", to: "brasov", flight: "ZZ 6017", vehicle: "sedan", passengers: 2, driver: "Sorin" },
+  { id: "r8", pickup: "21:30", passenger: "Chiara Rossi", from: "GHV", to: "brasov", flight: "ZZ 6017", vehicle: "sedan", passengers: 2, driver: null },
 ];
 
 export const DRIVER_LANGUAGES: Record<string, string[]> = {
@@ -47,15 +47,17 @@ export const DRIVER_LANGUAGES: Record<string, string[]> = {
   Sorin: ["RO", "EN", "IT"],
 };
 
-export type RideStatus = "scheduled" | "enRoute" | "waiting" | "onBoard" | "completed";
+export type RideStatus = "unassigned" | "scheduled" | "enRoute" | "waiting" | "onBoard" | "completed";
 
 export function pickupAt(ride: Ride, day: Date): Date {
   const [h, m] = ride.pickup.split(":").map(Number);
   return new Date(day.getFullYear(), day.getMonth(), day.getDate(), h, m + (ride.delayMinutes ?? 0));
 }
 
-// Driver sets off 90 minutes before pickup and is at arrivals 30 minutes before.
+// Driver sets off 90 minutes before pickup and is at arrivals 30 minutes before. A ride without a
+// driver stays "unassigned" whatever the time: it cannot be on its way.
 export function rideStatus(ride: Ride, now: Date): RideStatus {
+  if (!ride.driver) return "unassigned";
   const start = pickupAt(ride, now).getTime();
   const t = now.getTime();
   const minute = 60_000;

@@ -1,6 +1,7 @@
 import { bookDe } from "./book-de";
 import { adminDe } from "./admin-de";
 import { routesDe } from "./routes-de";
+import { caseDe } from "./case-de";
 import { manageDe } from "./manage-de";
 import type { Dictionary } from "./en";
 
@@ -48,7 +49,7 @@ export const de: Dictionary = {
     caption: "Preis pro Fahrzeug von jedem Flughafen zu jedem Ziel",
     airportsLabel: "Flughafen",
     destination: "Ziel",
-    cell: "{from} nach {to}: Pkw {car}, Kleinbus {minibus}. Ins Formular übernehmen",
+    loadHint: "Ins Formular übernehmen",
     loaded: "{from} nach {to} ist jetzt im Formular.",
   },
   fleet: {
@@ -89,5 +90,6 @@ export const de: Dictionary = {
   manage: manageDe,
   admin: adminDe,
   routePages: routesDe,
+  caseStudy: caseDe,
   links: { label: "Mehr", book: "Transfer buchen", manage: "Buchung verwalten", owner: "Inhaber-Demo" },
 };

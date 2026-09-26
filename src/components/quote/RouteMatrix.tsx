@@ -1,6 +1,6 @@
 "use client";
 
-import { fill, formatPrice } from "@/i18n/config";
+import { formatPrice } from "@/i18n/config";
 import { AIRPORTS, DESTINATIONS, DESTINATION_NAMES, minibusPrice } from "@/lib/fares";
 import { useQuote } from "./QuoteProvider";
 
@@ -40,16 +40,14 @@ export function RouteMatrix() {
                     type="button"
                     onClick={() => q.loadRoute(code, dest)}
                     aria-pressed={selected}
-                    aria-label={fill(t.routes.cell, {
-                      from: t.airports[code],
-                      to: DESTINATION_NAMES[dest],
-                      car: formatPrice(car, locale),
-                      minibus: formatPrice(minibusPrice(car), locale),
-                    })}
                     className={`flex h-full min-h-15 w-full flex-wrap items-baseline gap-x-2 px-5 py-3.5 text-left hover:bg-sign-soft focus-visible:-outline-offset-4 ${selected ? "bg-sign hover:bg-sign" : ""}`}
                   >
+                    <span className="sr-only">
+                      {t.airports[code]} → {DESTINATION_NAMES[dest]}:{" "}
+                    </span>
                     <span className="text-title-sm font-extrabold">{formatPrice(car, locale)}</span>
                     <span className="font-mono text-caption text-muted">/ {formatPrice(minibusPrice(car), locale)}</span>
+                    <span className="sr-only">. {t.routes.loadHint}</span>
                   </button>
                 </td>
               );

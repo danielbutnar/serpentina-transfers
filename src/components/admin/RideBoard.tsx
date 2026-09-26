@@ -4,8 +4,9 @@ import { VEHICLES } from "@/lib/booking";
 import { DRIVER_LANGUAGES, rideStatus, type Ride, type RideStatus } from "@/lib/dashboard";
 import { DESTINATION_NAMES } from "@/lib/fares";
 
-const GLYPH: Record<RideStatus, string> = { scheduled: "○", enRoute: "→", waiting: "■", onBoard: "▶", completed: "✓" };
+const GLYPH: Record<RideStatus, string> = { unassigned: "!", scheduled: "○", enRoute: "→", waiting: "■", onBoard: "▶", completed: "✓" };
 const STYLE: Record<RideStatus, string> = {
+  unassigned: "border-2 border-dashed border-ink font-bold",
   scheduled: "",
   enRoute: "font-bold",
   waiting: "bg-sign font-bold",
@@ -17,7 +18,7 @@ function Status({ status, t }: { status: RideStatus; t: Dictionary }) {
   return (
     <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 text-sm whitespace-nowrap ${STYLE[status]}`}>
       <span aria-hidden="true">{GLYPH[status]}</span>
-      {t.admin.status[status]}
+      {status === "unassigned" ? t.admin.noDriver : t.admin.status[status]}
     </span>
   );
 }

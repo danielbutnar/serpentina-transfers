@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { fill, formatDuration, formatPrice } from "@/i18n/config";
+import { formatDuration, formatPrice } from "@/i18n/config";
 import { AIRPORTS, DESTINATIONS, DESTINATION_NAMES, FARES, minibusPrice, type AirportCode } from "@/lib/fares";
 import { useQuote } from "./QuoteProvider";
 
@@ -44,11 +44,13 @@ export function RouteBoard() {
                 type="button"
                 onClick={() => q.loadRoute(airport, dest)}
                 aria-pressed={selected}
-                aria-label={fill(t.routes.cell, { from: t.airports[airport], to: DESTINATION_NAMES[dest], car, minibus })}
                 className={`grid min-h-15 w-full grid-cols-fill-auto items-center gap-3 border-b border-ink px-2 py-2.5 text-left ${selected ? "bg-sign" : ""}`}
               >
                 <span className="flex flex-col gap-0.5">
-                  <span className="text-body-lg font-extrabold">{DESTINATION_NAMES[dest]}</span>
+                  <span className="text-body-lg font-extrabold">
+                    <span className="sr-only">{t.airports[airport]} → </span>
+                    {DESTINATION_NAMES[dest]}
+                  </span>
                   <span className={`font-mono text-xs ${selected ? "text-muted" : "text-label"}`}>
                     {fare.km} km · {formatDuration(fare.minutes, locale)}
                   </span>
@@ -56,6 +58,7 @@ export function RouteBoard() {
                 <span className="flex items-baseline gap-1.5">
                   <span className="text-xl font-black">{car}</span>
                   <span className="font-mono text-xs text-muted">/ {minibus}</span>
+                  <span className="sr-only">. {t.routes.loadHint}</span>
                 </span>
               </button>
             </li>

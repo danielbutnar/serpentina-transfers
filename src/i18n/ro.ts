@@ -1,6 +1,7 @@
 import { bookRo } from "./book-ro";
 import { adminRo } from "./admin-ro";
 import { routesRo } from "./routes-ro";
+import { caseRo } from "./case-ro";
 import { manageRo } from "./manage-ro";
 import type { Dictionary } from "./en";
 
@@ -47,7 +48,7 @@ export const ro: Dictionary = {
     caption: "Prețul pe vehicul de la fiecare aeroport la fiecare destinație",
     airportsLabel: "Aeroport",
     destination: "Destinație",
-    cell: "{from} – {to}: autoturism {car}, microbuz {minibus}. Încarcă în formular",
+    loadHint: "Încarcă în formular",
     loaded: "{from} – {to} a fost încărcat în formular.",
   },
   fleet: {
@@ -88,5 +89,6 @@ export const ro: Dictionary = {
   manage: manageRo,
   admin: adminRo,
   routePages: routesRo,
+  caseStudy: caseRo,
   links: { label: "Mai multe", book: "Rezervă un transfer", manage: "Gestionează rezervarea", owner: "Demo pentru proprietar" },
 };

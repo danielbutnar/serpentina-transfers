@@ -55,10 +55,10 @@ export function SiteHeader({ locale, t }: { locale: Locale; t: Dictionary }) {
                 hrefLang={l}
                 lang={l}
                 aria-current={current ? "page" : undefined}
-                aria-label={LANGUAGE_NAMES[l]}
                 className={`flex w-11 items-center justify-center font-mono text-xs font-bold uppercase lg:w-auto lg:px-4 lg:text-caption ${current ? "on-ink bg-ink text-sign" : "hover:bg-sign"}`}
               >
                 {l}
+                <span className="sr-only">, {LANGUAGE_NAMES[l]}</span>
               </Link>
             );
           })}

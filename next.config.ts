@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   basePath,
   poweredByHeader: false,
+  // A static export has no image server; the few screenshots are already sized and compressed.
+  images: { unoptimized: true },
   experimental: {
     // The root layout lives under app/[lang], so unmatched URLs need app/global-not-found.tsx.
     globalNotFound: true,
