@@ -1,0 +1,36 @@
+{
+  "max": {
+    "hex-outside-tokens": 0,
+    "svg-hex": 8,
+    "tailwind-arbitrary": 112,
+    "tailwind-arbitrary-color": 0,
+    "font-size-literals": 1,
+    "font-size-distinct": 1,
+    "radius-literals": 0,
+    "radius-distinct": 0,
+    "shadow-literals": 0,
+    "shadow-distinct": 0,
+    "spacing-literals": 0,
+    "spacing-distinct": 0,
+    "calibration-hex": 8,
+    "soft-shadow": 0,
+    "gradients": 1,
+    "eyebrow": 5,
+    "headline-accent": 1,
+    "numbered-marker": 0,
+    "arrow-glyph": 7,
+    "middle-dot": 23,
+    "em-dash-label": 0,
+    "mono-label": 18,
+    "scroll-reveal": 0
+  },
+  "allow": {
+    "calibration-hex": "Ink #151515 and paper #F3F1EB are the owner-picked Claude Design palette (Wayfinding grid); see CLAUDE.md Design",
+    "eyebrow": "Small uppercase mono labels are the airport-sign device of the chosen design (concept bar, form labels, footer)",
+    "headline-accent": "Section bars pair a mono number with the title, like numbered airport signs; the number is aria-hidden",
+    "arrow-glyph": "Wayfinding arrows are part of the chosen design; all are aria-hidden or inside the matrix legend",
+    "middle-dot": "Sign-style separators from the design (OTP · Bucharest Otopeni, 170 KM · 2h 45m)",
+    "mono-label": "JetBrains Mono for codes, figures and labels is the design's second typeface",
+    "gradients": "Only the striped vehicle backdrops from the design, not decoration washes"
+  }
+}

@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Tokens from the Claude Design hand-off, direction "Wayfinding grid" (design-v2). */
+@theme {
+  --color-ink: #151515;
+  --color-paper: #f3f1eb;
+  --color-paper-2: #e9e6de;
+  --color-sign: #e0a526;
+  --color-sign-soft: #f6e3b5;
+  --color-muted: #3f3d37;
+  --color-label: #5a5850;
+  --color-on-ink-muted: #d6d3cb;
+}
+
+@theme inline {
+  --font-sans: var(--font-public-sans), Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  /* On black surfaces the focus ring switches to sign yellow. */
+  .on-ink :focus-visible {
+    outline-color: var(--color-sign);
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

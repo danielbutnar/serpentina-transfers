@@ -1,0 +1,14 @@
+# Build output and generated code
+.next/
+out/
+build/
+next-env.d.ts
+*.tsbuildinfo
+# Lockfile
+pnpm-lock.yaml
+# Claude Design exports and hand-written docs (kept as delivered)
+design/
+design-v2/
+docs/
+# Rewritten by next dev
+AGENTS.md
