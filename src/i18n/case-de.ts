@@ -30,10 +30,10 @@ export const caseDe: CaseDictionary = {
   design:
     "Der Look kommt aus der Flughafen-Beschilderung: gelbe und schwarze Schilder, nummerierte Abschnitte, ein strenges Raster und eckige Formen. Das prägende Element ist das Namensschild, das jeder Reisende aus der Ankunftshalle kennt. Es gibt keine Fotos: Fahrzeuge und Karte sind im Code gezeichnet. Die Richtung wurde aus zwei Entwürfen in Claude Design gewählt und dann von Hand umgesetzt.",
   a11yTitle: "Barrierefreiheit",
-  a11y: "Jede Seite wird mit axe bei 375, 768 und 1440 px geprüft und nur mit der Tastatur durchlaufen: ein Link zum Inhalt, eine sichtbare Beschriftung an jedem Feld, Fehler in Worten direkt am Feld mit einer Zusammenfassung, die den Fokus erhält, ein nativer Dialog zum Stornieren, ein sichtbarer Fokus und keine Animation für alle, die Bewegung ausgeschaltet haben.",
+  a11y: "axe prüft jede Seite bei 375, 768 und 1440 px, Buchung und Stornierung werden nur mit der Tastatur getestet: ein Link zum Inhalt, eine sichtbare Beschriftung an jedem Feld, Fehler in Worten direkt am Feld mit einer Zusammenfassung, die den Fokus erhält, ein nativer Dialog zum Stornieren, ein sichtbarer Fokus und keine Animation für alle, die Bewegung ausgeschaltet haben.",
   speedTitle: "Tempo",
   speed:
-    "Lighthouse-Labormessungen auf der Live-Website (27. September 2026): Leistung 100 am Desktop und 81 bis 94 auf einem gedrosselten Handy, Barrierefreiheit 100, Best Practices 100. Der SEO-Wert ist absichtlich niedriger: Ein Konzept soll nicht in Suchergebnissen erscheinen.",
+    "Lighthouse-Labormessungen auf der Live-Website (27. September 2026): Leistung 100 am Desktop; auf einem gedrosselten Handy lag der Wert je nach Durchlauf zwischen 73 und 94, gemessen auf einem einfachen Laptop. Barrierefreiheit 100 und Best Practices 100 in jedem Durchlauf. Der SEO-Wert ist absichtlich niedriger: Ein Konzept soll nicht in Suchergebnissen erscheinen.",
   builtTitle: "Technik",
   built: [
     "Next.js 16 als statische Website auf GitHub Pages",

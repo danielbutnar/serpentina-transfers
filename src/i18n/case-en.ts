@@ -29,10 +29,10 @@ export const caseEn = {
   design:
     "The look comes from airport wayfinding: yellow and black signs, numbered sections, a strict grid and square corners. The memorable element is the name sign every traveller knows from the arrivals hall. There are no photos: the vehicles and the map are drawn in code. The direction was chosen from two options made in Claude Design, then built by hand.",
   a11yTitle: "Accessibility",
-  a11y: "Every page is checked with axe at 375, 768 and 1440 px and walked with the keyboard: a skip link, a visible label on every field, errors in words next to the field with a summary that takes focus, a native dialog for cancelling, a visible focus ring, and no animation for people who turn motion off.",
+  a11y: "axe checks every page at 375, 768 and 1440 px, and the booking and cancel flows are tested with the keyboard alone: a skip link, a visible label on every field, errors in words next to the field with a summary that takes focus, a native dialog for cancelling, a visible focus ring, and no animation for people who turn motion off.",
   speedTitle: "Speed",
   speed:
-    "Lighthouse lab runs on the live site (27 September 2026): performance 100 on desktop and 81 to 94 on a throttled phone, accessibility 100, best practices 100. The SEO score is lower on purpose: a concept should not show up in search results.",
+    "Lighthouse lab runs on the live site (27 September 2026): performance 100 on desktop; on a throttled phone the score ranged from 73 to 94 between runs on a modest laptop. Accessibility 100 and best practices 100 in every run. The SEO score is lower on purpose: a concept should not show up in search results.",
   builtTitle: "Built with",
   built: [
     "Next.js 16 as a static site on GitHub Pages",

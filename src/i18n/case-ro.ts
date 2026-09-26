@@ -31,10 +31,10 @@ export const caseRo: CaseDictionary = {
   design:
     "Aspectul vine din semnalistica aeroporturilor: indicatoare galbene și negre, secțiuni numerotate, o grilă strictă și colțuri drepte. Elementul memorabil este pancarta cu nume pe care o știe orice călător din sala de sosiri. Nu există fotografii: mașinile și harta sunt desenate în cod. Direcția a fost aleasă dintre două variante făcute în Claude Design, apoi construită de mână.",
   a11yTitle: "Accesibilitate",
-  a11y: "Fiecare pagină este verificată cu axe la 375, 768 și 1440 px și parcursă doar cu tastatura: link de sărit la conținut, etichetă vizibilă pe fiecare câmp, erori scrise lângă câmp cu un rezumat care primește focusul, dialog nativ pentru anulare, focus vizibil și fără animații pentru cine le-a oprit.",
+  a11y: "axe verifică fiecare pagină la 375, 768 și 1440 px, iar rezervarea și anularea sunt testate doar cu tastatura: link de sărit la conținut, etichetă vizibilă pe fiecare câmp, erori scrise lângă câmp cu un rezumat care primește focusul, dialog nativ pentru anulare, focus vizibil și fără animații pentru cine le-a oprit.",
   speedTitle: "Viteză",
   speed:
-    "Măsurători Lighthouse pe site-ul live (27 septembrie 2026): performanță 100 pe desktop și între 81 și 94 pe un telefon simulat mai lent, accesibilitate 100, bune practici 100. Scorul SEO e mai mic intenționat: un concept nu trebuie să apară în rezultatele căutării.",
+    "Măsurători Lighthouse pe site-ul live (27 septembrie 2026): performanță 100 pe desktop; pe un telefon simulat mai lent scorul a variat între 73 și 94 de la o rulare la alta, pe un laptop modest. Accesibilitate 100 și bune practici 100 la fiecare rulare. Scorul SEO e mai mic intenționat: un concept nu trebuie să apară în rezultatele căutării.",
   builtTitle: "Construit cu",
   built: [
     "Next.js 16 ca site static pe GitHub Pages",
