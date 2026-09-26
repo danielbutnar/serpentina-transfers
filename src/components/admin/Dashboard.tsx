@@ -84,10 +84,10 @@ export function Dashboard({ locale, t }: { locale: Locale; t: Dictionary }) {
         {stats.map(([label, value], i) => (
           <div
             key={label}
-            className={`flex flex-col-reverse gap-1 border-ink px-5 py-5 lg:px-12 ${i % 2 ? "border-l" : ""} ${i > 1 ? "border-t md:border-t-0" : ""} ${i === 2 ? "md:border-l" : ""}`}
+            className={`flex flex-col-reverse gap-1 border-ink px-4 py-5 sm:px-5 lg:px-12 ${i % 2 ? "border-l" : ""} ${i > 1 ? "border-t md:border-t-0" : ""} ${i === 2 ? "md:border-l" : ""}`}
           >
             <dt className="label-mono">{label}</dt>
-            <dd className="text-display-sm leading-none font-black tracking-display">{value}</dd>
+            <dd className="text-title-sm leading-none font-black tracking-display sm:text-display-sm">{value}</dd>
           </div>
         ))}
       </dl>

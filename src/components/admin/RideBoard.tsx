@@ -73,7 +73,7 @@ export function RideBoard({
 
   return (
     <>
-      <table className="hidden w-full border-collapse border-3 border-ink bg-white text-left md:table">
+      <table className="hidden w-full border-collapse border-3 border-ink bg-white text-left lg:table">
         <caption className="sr-only">{caption}</caption>
         <thead>
           <tr className="border-b-3 border-ink font-mono text-xs tracking-widest uppercase">
@@ -119,7 +119,7 @@ export function RideBoard({
         </tbody>
       </table>
 
-      <ul className="flex flex-col gap-2.5 md:hidden" aria-label={caption}>
+      <ul className="grid gap-2.5 sm:grid-cols-2 lg:hidden" aria-label={caption}>
         {rides.map((r) => (
           <li key={r.id} className={`flex flex-col gap-2 border-2 border-ink p-3.5 ${!r.driver ? "bg-sign-soft" : "bg-white"}`}>
             <div className="flex items-baseline justify-between gap-3">

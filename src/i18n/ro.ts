@@ -1,5 +1,6 @@
 import { bookRo } from "./book-ro";
 import { adminRo } from "./admin-ro";
+import { routesRo } from "./routes-ro";
 import { manageRo } from "./manage-ro";
 import type { Dictionary } from "./en";
 
@@ -86,5 +87,6 @@ export const ro: Dictionary = {
   book: bookRo,
   manage: manageRo,
   admin: adminRo,
+  routePages: routesRo,
   links: { label: "Mai multe", book: "Rezervă un transfer", manage: "Gestionează rezervarea", owner: "Demo pentru proprietar" },
 };

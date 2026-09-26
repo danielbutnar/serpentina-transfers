@@ -1,5 +1,6 @@
 import { bookEn } from "./book-en";
 import { adminEn } from "./admin-en";
+import { routesEn } from "./routes-en";
 import { manageEn } from "./manage-en";
 
 // English copy. Base texts come from the Claude Design hand-off; ro.ts and de.ts must have the same shape.
@@ -85,6 +86,7 @@ export const en = {
   book: bookEn,
   manage: manageEn,
   admin: adminEn,
+  routePages: routesEn,
   links: { label: "More", book: "Book a transfer", manage: "Manage booking", owner: "Owner demo" },
 };
 

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Contact } from "@/components/Contact";
 import { Faq } from "@/components/Faq";
@@ -63,6 +64,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <div className="md:hidden">
                 <RouteBoard />
               </div>
+              <Link href={`/${lang}/routes/`} className="self-start font-bold underline underline-offset-4">
+                {t.routePages.index.seeAll}
+              </Link>
             </div>
           </section>
         </QuoteProvider>

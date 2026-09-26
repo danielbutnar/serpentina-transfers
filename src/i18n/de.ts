@@ -1,5 +1,6 @@
 import { bookDe } from "./book-de";
 import { adminDe } from "./admin-de";
+import { routesDe } from "./routes-de";
 import { manageDe } from "./manage-de";
 import type { Dictionary } from "./en";
 
@@ -87,5 +88,6 @@ export const de: Dictionary = {
   book: bookDe,
   manage: manageDe,
   admin: adminDe,
+  routePages: routesDe,
   links: { label: "Mehr", book: "Transfer buchen", manage: "Buchung verwalten", owner: "Inhaber-Demo" },
 };

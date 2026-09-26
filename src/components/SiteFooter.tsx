@@ -5,6 +5,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 export function SiteFooter({ t, locale }: { t: Dictionary; locale: Locale }) {
   const links = [
     { href: `/${locale}/book/`, label: t.links.book },
+    { href: `/${locale}/routes/`, label: t.routePages.index.title },
     { href: `/${locale}/manage/`, label: t.links.manage },
     { href: `/${locale}/admin/`, label: t.links.owner },
   ];
