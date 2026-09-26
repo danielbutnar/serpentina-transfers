@@ -1,4 +1,5 @@
 import { bookDe } from "./book-de";
+import { manageDe } from "./manage-de";
 import type { Dictionary } from "./en";
 
 // German copy (formal "Sie"). Draft from the Claude Design hand-off, for the owner's review.
@@ -83,4 +84,6 @@ export const de: Dictionary = {
   },
   map: { mountains: "Karpaten", label: "Karte der Strecke von {from} nach {to}, etwa {km} km." },
   book: bookDe,
+  manage: manageDe,
+  links: { label: "Mehr", book: "Transfer buchen", manage: "Buchung verwalten" },
 };

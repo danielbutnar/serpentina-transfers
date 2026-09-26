@@ -95,6 +95,9 @@ export function Confirmation({ s, t, locale, headingRef }: { s: FlowState; t: Di
           <a href={`https://wa.me/?text=${encodeURIComponent(share)}`} target="_blank" rel="noopener noreferrer" className={secondaryButton}>
             {c.whatsapp}
           </a>
+          <Link href={`/${locale}/manage/`} className={secondaryButton}>
+            {t.manage.title}
+          </Link>
           <Link href={`/${locale}/`} onClick={() => clearFlow()} className={secondaryButton}>
             {c.another}
           </Link>
